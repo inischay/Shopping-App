@@ -7,6 +7,6 @@ class AppColors {
   static Color iconColor1 = const Color.fromARGB(255, 69, 71, 80);
   static Color iconColor2 = Colors.white;
   static Color textColor1 = const Color(0xFF25293C);
-  static Color textTitleColor = Color.fromARGB(255, 174, 174, 174);
+  static Color textTitleColor = const Color.fromARGB(255, 174, 174, 174);
   static Color priceColor = const Color(0xFFDE767B);
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shopping_app/constants/constants.dart';
 import 'package:shopping_app/widgets/card_widget.dart';
-
 import '../widgets/searchbar_and_cart.dart';
 
 class HomePage extends StatelessWidget {
