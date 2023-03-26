@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
 import 'package:shopping_app/constants/constants.dart';
@@ -20,30 +19,28 @@ class _DetailPageState extends State<DetailPage> {
       extendBodyBehindAppBar: true,
       extendBody: true,
       appBar: AppBar(
-        elevation: 0,
         backgroundColor: Colors.transparent,
+        elevation: 0,
         title: const Text(
           "Product",
           style: TextStyle(color: Colors.black),
         ),
         leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_ios,
-          ),
-          color: Colors.black,
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const HomePage()));
-          },
-        ),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const HomePage()));
+            },
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            )),
         actions: [
           IconButton(
               onPressed: () {},
               icon: const Icon(
                 Icons.shopping_cart_outlined,
                 color: Colors.black,
-                size: 25,
-              ))
+              )),
         ],
       ),
       body: Stack(
@@ -54,44 +51,39 @@ class _DetailPageState extends State<DetailPage> {
               Stack(
                 children: [
                   ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                        bottomLeft: Radius.circular(60)),
-                    child: Image.asset(widget.appModels.img),
-                  ),
+                      borderRadius: const BorderRadius.only(
+                          bottomLeft: Radius.circular(60)),
+                      child: Image.asset(widget.appModels.img)),
                   Positioned(
                     bottom: 10,
                     right: 20,
                     child: CircleAvatar(
                       radius: 30,
                       backgroundColor: Colors.white,
-                      child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.favorite,
-                            color: AppColors.priceColor,
-                            size: 30,
-                          )),
+                      child: Icon(
+                        Icons.favorite,
+                        color: AppColors.priceColor,
+                        size: 25,
+                      ),
                     ),
-                  )
+                  ),
                 ],
               ),
               const SizedBox(
-                height: 25,
+                height: 20,
               ),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      widget.appModels.price,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineMedium!
-                          .copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.priceColor),
-                    ),
+                    Text(widget.appModels.price,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium!
+                            .copyWith(
+                                color: AppColors.priceColor,
+                                fontWeight: FontWeight.bold)),
                     const SizedBox(
                       height: 10,
                     ),
@@ -100,16 +92,16 @@ class _DetailPageState extends State<DetailPage> {
                       children: [
                         Text(
                           widget.appModels.title,
-                          style: const TextStyle(fontSize: 17),
+                          style: const TextStyle(fontSize: 16),
                         ),
                         Row(
                           children: [
-                            Text(
-                              "${widget.appModels.rating.toString()}/ 5.0",
-                              style: const TextStyle(fontSize: 16),
+                            const Text(
+                              "4/5",
+                              style: TextStyle(fontSize: 16),
                             ),
                             const SizedBox(
-                              width: 5,
+                              width: 8,
                             ),
                             Row(
                               children: List.generate(5, (index) {
@@ -120,39 +112,36 @@ class _DetailPageState extends State<DetailPage> {
                                   );
                                 } else {
                                   return const Icon(
-                                    Icons.star_border_outlined,
+                                    Icons.star_border,
                                     color: Colors.amber,
                                   );
                                 }
                               }),
-                            ),
+                            )
                           ],
                         )
                       ],
                     ),
                     const SizedBox(
-                      height: 15,
+                      height: 20,
                     ),
-                    const Text(
-                      "Color Option",
-                      style: TextStyle(fontSize: 15),
-                    ),
-                    const SizedBox(
+                    const Text("Color Option"),
+                    SizedBox(
                       height: 8,
                     ),
                     Wrap(
                       spacing: 5,
                       children: [
                         CircleAvatar(
-                          radius: 15,
+                          radius: 13,
                           backgroundColor: AppColors.priceColor,
                         ),
                         const CircleAvatar(
-                          radius: 15,
+                          radius: 13,
                           backgroundColor: Colors.grey,
                         ),
                         CircleAvatar(
-                          radius: 15,
+                          radius: 13,
                           backgroundColor: AppColors.iconColor1,
                         ),
                       ],
@@ -162,57 +151,57 @@ class _DetailPageState extends State<DetailPage> {
                     ),
                     const Text(
                       "Description",
-                      style: TextStyle(fontSize: 18),
+                      style: TextStyle(fontSize: 17),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     ReadMoreText(
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-                      trimLines: 4,
                       style: TextStyle(
-                          height: 1.5,
                           color: AppColors.textTitleColor,
-                          fontSize: 16),
+                          fontSize: 16,
+                          height: 1.5),
                       trimMode: TrimMode.Line,
-                      moreStyle: const TextStyle(color: Colors.black),
+                      trimLines: 4,
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
           Positioned(
             bottom: 0,
             right: 0,
             child: Container(
-              height: 60,
-              width: 200,
               alignment: Alignment.center,
+              height: 60,
+              width: 190,
               decoration: BoxDecoration(
                   color: AppColors.iconColor1,
                   borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(40),
                       bottomRight: Radius.circular(40))),
-              child: CupertinoButton(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Icon(
-                        Icons.add,
-                        size: 25,
-                        color: Colors.white,
-                      ),
-                      SizedBox(
-                        width: 8,
-                      ),
-                      Text(
-                        "Add to Cart",
-                        style: TextStyle(color: Colors.white, fontSize: 18),
-                      )
-                    ],
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Icon(
+                    Icons.add,
+                    color: Colors.white,
+                    size: 23,
                   ),
-                  onPressed: () {}),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    "Add to Cart",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ],
+              ),
             ),
           )
         ],
